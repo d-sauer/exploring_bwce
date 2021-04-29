@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_ykxBwJ6wEeuM_upaK4tBKA" targetNamespace="http://tns.tibco.com/bw/composite/OrderMgmt" name="OrderMgmt" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_NVsGkJ6xEeuM_upaK4tBKA" name="bwcorder" promote="ComponentMainProcess/bwcorder">
+    <sca:interface.wsdl xmi:id="_NVxmIJ6xEeuM_upaK4tBKA" interface="http://xmlns.example.com/20210416053932PLT#wsdl.interface(bwcorder)" scaext:wsdlLocation="../Processes/ordermgmt/MainProcess.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_NV9MUJ6xEeuM_upaK4tBKA" name="RestService" path="/bwcorder" docBasePath="http://localhost:7777/OrderMgmt" docResourcePath="Bwcorder" basePath="/" connector="ordermgmt.bwcorder" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/OrderPOST-Schema.json">
+      <operation xmi:id="_NWD6AJ6xEeuM_upaK4tBKA" operationName="post" nickname="post-order" httpMethod="POST" notes="" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientFormat>xml</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+        <clientRequestFormat>xml</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_NXzmcJ6xEeuM_upaK4tBKA"/>
+      <advancedConfig xmi:id="_NWBdwJ6xEeuM_upaK4tBKA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_NWD6AZ6xEeuM_upaK4tBKA" bindingName="RestService"/>
+  </sca:service>
+  <sca:reference xmi:id="_6HjEcJ61EeuM_upaK4tBKA" multiplicity="0..1" name="LookupProcess" wiredByImpl="false" promote="ComponentMainProcess/LookupProcess">
+    <sca:interface.wsdl xmi:id="_6HjrgJ61EeuM_upaK4tBKA" interface="http://www.example.org/wsdl/BWCLkupCONC#wsdl.interface(LookupProcess)" scaext:wsdlLocation="../Service%20Descriptors/LookupProcess_CONC.wsdl"/>
+  </sca:reference>
+  <sca:property xmi:id="_zTgXEJ6wEeuM_upaK4tBKA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_zTyq8J6wEeuM_upaK4tBKA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_zT4KgJ6wEeuM_upaK4tBKA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_zT-RIJ6wEeuM_upaK4tBKA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_zUEXwJ6wEeuM_upaK4tBKA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_zUJQQJ6wEeuM_upaK4tBKA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_zUOv0J6wEeuM_upaK4tBKA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_fQIS4J6xEeuM_upaK4tBKA" name="Property" type="XMLSchema:int" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hq0MoJ6xEeuM_upaK4tBKA" name="ORDER_PORT" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2PQncJ65EeuM_upaK4tBKA" name="HTTPCLIENT_HOST" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_zAAzUJ6wEeuM_upaK4tBKA" name="ComponentMainProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zACBcJ6wEeuM_upaK4tBKA" processName="ordermgmt.MainProcess"/>
+    <sca:service xmi:id="_NVocMJ6xEeuM_upaK4tBKA" name="bwcorder">
+      <sca:interface.wsdl xmi:id="_NVpDQJ6xEeuM_upaK4tBKA" interface="http://xmlns.example.com/20210416053932PLT#wsdl.interface(bwcorder)"/>
+    </sca:service>
+    <sca:reference xmi:id="_6HidYJ61EeuM_upaK4tBKA" name="LookupProcess">
+      <sca:interface.wsdl xmi:id="_6HidYZ61EeuM_upaK4tBKA" interface="http://www.example.org/wsdl/BWCLkupCONC#wsdl.interface(LookupProcess)" scaext:wsdlLocation="../Service%20Descriptors/LookupProcess_CONC.wsdl"/>
+    </sca:reference>
+  </sca:component>
+</sca:composite>
